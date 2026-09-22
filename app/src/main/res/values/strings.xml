@@ -13,7 +13,7 @@
     <string name="no_call">不叫</string>
     <string name="rob">抢地主</string>
     <string name="no_rob">不抢</string>
-    <string name="double">加倍</string>
+    <string name="action_double">加倍</string>
     <string name="no_double">不加倍</string>
     <string name="super_double">超级加倍</string>
     <string name="play">出牌</string>

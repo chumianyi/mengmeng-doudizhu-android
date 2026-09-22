@@ -130,7 +130,7 @@ class CardView @JvmOverloads constructor(
         if (isChosen) {
             // Highlight glow
             val glowPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-                color = Color.parseColor("#40FFD700")
+                this.color = Color.parseColor("#40FFD700")
                 style = Paint.Style.FILL
             }
             canvas.drawRoundRect(-2f, -2f, w + 2f, h + 2f, 8f, 8f, glowPaint)

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="#22FFFFFF"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/historyMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="练习模式"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/historyResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="胜利"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp" />
+
+        <TextView
+            android:id="@+id/historyCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+100"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp" />
+
+        <TextView
+            android:id="@+id/historyDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#AAFFFFFF"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/historyDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="地主: 玩家 | 底分: 1 x 2"
+        android:textColor="#CCFFFFFF"
+        android:textSize="12sp"
+        android:layout_marginTop="5dp" />
+
+</LinearLayout>

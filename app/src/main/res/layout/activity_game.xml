@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/gameBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <!-- Top bar: score info -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/baseScoreLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="底分: 1"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:id="@+id/multiplierLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="倍数: 1"
+            android:textColor="#FFD700"
+            android:textSize="14sp"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:id="@+id/turnLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="等待..."
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/leaveBtn"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="退出"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="#66FF0000" />
+
+    </LinearLayout>
+
+    <!-- Opponent 1 (left top) -->
+    <LinearLayout
+        android:id="@+id/opponent1Panel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/opponent1Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="玩家1"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/opponent1Cards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="17张"
+            android:textColor="#FFD700"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <!-- Opponent 2 (right top) -->
+    <LinearLayout
+        android:id="@+id/opponent2Panel"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBar"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/opponent2Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="玩家2"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/opponent2Cards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="17张"
+            android:textColor="#FFD700"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <!-- Kitty cards (center top) -->
+    <LinearLayout
+        android:id="@+id/kittyContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" />
+
+    <!-- Last play area (center) -->
+    <TextView
+        android:id="@+id/lastPlayLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:background="#66000000"
+        android:padding="10dp" />
+
+    <!-- My info -->
+    <TextView
+        android:id="@+id/myName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/handContainer"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="我"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <!-- My hand cards -->
+    <HorizontalScrollView
+        android:id="@+id/handScroll"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_above="@id/actionBar"
+        android:layout_marginBottom="5dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/handContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+    </HorizontalScrollView>
+
+    <!-- Action bar -->
+    <LinearLayout
+        android:id="@+id/actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/bidCallBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/bidNoCallBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/bidRobBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/bidNoRobBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/doubleBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/doubleNoBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/doubleSuperBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/playBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/passBtn"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/hintBtn"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/reselectBtn"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/startBtn"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- Waiting overlay -->
+    <LinearLayout
+        android:id="@+id/waitingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="等待玩家加入..."
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
+    <!-- Result panel -->
+    <LinearLayout
+        android:id="@+id/resultPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/resultLabel"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="胜利!"
+            android:textColor="#FFD700"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/resultCoins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="金币: +100"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp">
+
+            <Button
+                android:id="@+id/againBtn"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="20dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/homeBtn"
+                android:layout_width="120dp"
+                android:layout_height="60dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
